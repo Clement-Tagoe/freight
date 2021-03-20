@@ -71,11 +71,10 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    /* background-color: rgba(0, 0, 0, 0.3); */
     width: 100%;
     height: 90px;
     color: #fff;
-    z-index: 2;
+    z-index: 3;
 }
 
 .custom-navbar ul {
@@ -98,6 +97,88 @@ img {
     justify-content: space-between;
 }
 
+.nav-colored { 
+    background-color:#fff; 
+}
+
+.nav-colored a {
+    color: #ff4838
+}
+
+.nav-colored a:hover {
+    color: #162b32;
+    border-bottom: 2px #162b32 solid;
+}
+
+.nav-transparent { 
+    background-color: transparent;
+}
+
+.custom-navbar .toggler {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 5px;
+}
+
+.custom-navbar .hamburger {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    background: rgb(231, 229, 229);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    border-radius: 5px;
+}
+
+.custom-navbar .hamburger > div {
+    position: relative;
+    width: 100%;
+    height: 2.5px;
+    background-color: #ff4838;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.custom-navbar .hamburger > div:before,
+.custom-navbar .hamburger > div:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2.5px;
+    background: inherit;
+}
+
+.custom-navbar .hamburger > div:after {
+    top: 10px;
+}
+
+.custom-navbar .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+
+/* Turn lines into X */
+.custom-navbar .toggler:checked + .hamburger > div:before,
+.custom-navbar .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+}
 
 /* showcase */
 
@@ -349,12 +430,10 @@ img {
 
   footer .custom-grid {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  footer .custom-container {
       display: table;
       width: 100%;
   }
+
   footer h4 {
       color: #ff4838;
       font-weight: 600;
@@ -365,6 +444,7 @@ img {
       color: #fff;
   }
 
+  footer .footer-griditem1,
   footer .footer-griditem {
         display: table-cell;
   }
@@ -377,3 +457,132 @@ img {
   footer .footer-griditem1 {
     width: 250px;
 }
+
+  footer .social {
+      padding-top: 10px;
+  }
+
+  .fa-facebook {
+      padding-right: 10px;
+      color: #3b5998;
+  }
+
+  .fa-linkedin {
+      color: #0e76a8;
+  }
+
+  .copyright {
+      text-align: center;
+      border-top: 2px solid #ff4838;
+      padding: 10px 0;
+  }
+
+
+  @media (max-width: 768px) {
+      
+    .custom-container {
+        max-width: 95%;
+    }
+    
+    .logo-div {
+        width: 70px;
+        height: 70px;
+    }
+
+    .custom-navbar {
+        background-color: #fff;
+        height: 80px;
+    }
+
+    .custom-navbar a {
+        color: #ff4838
+    }
+
+    .custom-navbar a:hover {
+        color: #162b32;
+        border-bottom: 2px solid #162b32;
+    }
+
+    .custom-navbar .toggler {
+        visibility: visible;
+    }
+
+    .custom-navbar .hamburger {
+        visibility: visible;
+    }
+
+    .custom-navbar nav {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        height: 300px;
+        background-color: #fff;
+        z-index: 5;
+        transform: translateX(100%);
+    }
+
+    .custom-navbar ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .custom-navbar ul li {
+        padding: 15px 0;
+    }
+
+    .custom-navbar .toggler:checked ~ nav {
+        transform: translateX(0);
+        transition: 0.4s;
+    }
+
+    .showcase {
+        height: 400px;
+    }
+
+    .carousel-inner .carousel-item img {
+        height: 400px;
+    }
+
+    .header-caption h1 {
+        font-size: 2rem;
+    }
+
+    .intro {
+        max-width: 80%;
+    }
+
+    .figures {
+        margin-top: 50px;
+    }
+
+    .counter-box {
+        padding: 20px;
+    }
+
+    .services .custom-grid,
+    .figures .custom-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    footer .footer-griditem1,
+    footer .footer-griditem {
+        display: block;
+        text-align: center;
+        margin: auto;
+        padding-top: 20px;
+  }
+
+    .partners .custom-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+
+  @media (max-width: 500px) {
+    .services .custom-grid {
+        grid-template-columns: 1fr;
+    }
+  }
