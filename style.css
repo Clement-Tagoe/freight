@@ -183,13 +183,13 @@ img {
 /* showcase */
 
 .showcase {
-    height: 600px;
+    height: 700px;
     position: relative;
     background-color: #ffcb9a;
 }
 
 .carousel-inner .carousel-item img {
-   height: 600px;
+   height: 700px;
 }
 
 .overlay {
